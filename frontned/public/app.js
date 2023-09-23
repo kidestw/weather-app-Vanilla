@@ -1,5 +1,6 @@
+
 //updating the user name first
-let userName = prompt("Enter your name please?");
+/*let userName = prompt("Enter your name please?");
 if ( userName.length === 0 )
 {
     alert("you haven't entered a proper name")
@@ -7,27 +8,39 @@ if ( userName.length === 0 )
 }
 let newName = document.querySelector("#user-name");
 newName.innerHTML = userName;
-    
-  function adjustGreeting()
-{
-    let time = new Date();
-    let hour = time.getHours();
-    if ( hour > 11 && hour < 18 ) {
-       return ( "Afternoon");
-    }
-    else if ( hour > 18 && hour < 24 )
-    {
-        return("Evening")
-    }
-    else
-    {
-        return("Morning")
-    }
+*/
+
+async function getUserName() {
+  // API call 
+  async function getUserName() {
+
+    const token = sessionStorage.getItem( 'token' );
+
+    const response = await fetch( '/api/user', {
+      headers: {
+        'Authorization': `Bearer ${ token }`
+      }
+    } );
+
+    const data = await response.json();
+
+    return data.name;
+
+  }
+
+  const userName = await getUserName();
 }
 
-  //adjust the greeting
-let greeting = document.querySelector("#greeting")
-greeting.innerHTML = adjustGreeting();
+    
+
+//adjust the greeting
+  
+// Update DOM
+const userName = await getUserName();
+
+const greeting = document.getElementById('greeting');
+greeting.innerHTML = `Hello ${ userName }`;
+
 
     //specify the last updated time for the weather
    
