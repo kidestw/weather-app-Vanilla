@@ -1,15 +1,4 @@
 
-//updating the user name first
-/*let userName = prompt("Enter your name please?");
-if ( userName.length === 0 )
-{
-    alert("you haven't entered a proper name")
-    userName = "User";
-}
-let newName = document.querySelector("#user-name");
-newName.innerHTML = userName;
-*/
-
 async function getUserName() {
   // API call 
   async function getUserName() {
@@ -78,7 +67,8 @@ function currentClicked(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(retrievePosition);
   function retrievePosition(position) {
-     let apiKey = `15a4a55da8290eobb6364b6t10f23f36`;
+    //replace by your generated API key here
+      let apiKey = `<replace the API key>`;
      let lat = position.coords.latitude;
      let lon = position.coords.longitude;
      let url = `https://api.shecodes.io/weather/v1/current?lon=${lon}&lat=${lat}&key=${apiKey}`;
