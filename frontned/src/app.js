@@ -97,7 +97,8 @@ function searchClicked(event)
 
 function showCity(city)
 {
-     let apiKey1 = `15a4a55da8290eobb6364b6t10f23f36`
+     //replace the API key by generating your own API key
+    let apiKey1 = `<put your API key here>`
      let url1 = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey1}`;
      let url2 = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey1}`;
 axios.get(url1).then(showWeather);
